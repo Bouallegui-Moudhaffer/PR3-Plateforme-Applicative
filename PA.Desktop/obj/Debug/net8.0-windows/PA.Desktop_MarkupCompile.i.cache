@@ -1,0 +1,20 @@
+﻿PA.Desktop
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\obj\Debug\net8.0-windows\
+PA.Desktop
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\App.xaml
+62031313186
+
+18411022641
+2371397815700
+CustomControls\BindablePasswordBox.xaml;Styles\ButtonStyles.xaml;Styles\UIColors.xaml;Views\HomeView.xaml;Views\LoginView.xaml;Views\MainView.xaml;
+
+True
+

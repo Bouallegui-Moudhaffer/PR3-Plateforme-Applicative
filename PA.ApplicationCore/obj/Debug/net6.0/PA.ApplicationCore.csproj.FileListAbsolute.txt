@@ -1,0 +1,14 @@
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\bin\Debug\net6.0\PA.ApplicationCore.deps.json
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\bin\Debug\net6.0\PA.ApplicationCore.runtimeconfig.json
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\bin\Debug\net6.0\PA.ApplicationCore.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\bin\Debug\net6.0\PA.ApplicationCore.pdb
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.AssemblyInfo.cs
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\refint\PA.ApplicationCore.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.pdb
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.genruntimeconfig.cache
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\ref\PA.ApplicationCore.dll

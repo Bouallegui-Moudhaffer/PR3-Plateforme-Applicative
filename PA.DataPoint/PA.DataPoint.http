@@ -1,0 +1,6 @@
+@PA.DataPoint_HostAddress = http://localhost:5194
+
+GET {{PA.DataPoint_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
