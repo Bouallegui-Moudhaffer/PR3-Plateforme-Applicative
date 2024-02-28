@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PA.Desktop.CustomControls.CircularProgressBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PA.Desktop.CustomControls"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             mc:Ignorable="d" 
+             x:Name="circularProgress"
+             d:DesignHeight="450" d:DesignWidth="450">
+    <Grid>
+        <ed:Arc Stretch="None"
+                    EndAngle="360"
+                    ArcThickness="{Binding ElementName=circularProgress, Path=ArcThickness}" Fill="{Binding ElementName=circularProgress,
+            Path=BackgroundBrush}"/>
+        <Label x:Name="percentValue"
+               Content="{Binding Converter={StaticResource ValueToTextConverter}, ElementName=circularProgress, Path=Value}"
+               FontSize="{Binding ElementName=circularProgress, Path=PercentFontSize}"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>    
+        <ed:Arc Name="progressBar" Stretch="None"
+                EndAngle="{Binding Converter={StaticResource ValueToAngleConverter}, ElementName=circularProgress, Path=Value}"
+                ArcThickness="{Binding ElementName=circularProgress, Path=ArcThickness}"
+                Fill="{Binding ElementName=circularProgress, Path=IndicatorBrush}"/>
+    </Grid>
+</UserControl>

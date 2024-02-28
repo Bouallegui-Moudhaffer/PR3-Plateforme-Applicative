@@ -7,6 +7,7 @@ C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\n
 C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.AssemblyInfoInputs.cache
 C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.AssemblyInfo.cs
 C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.sourcelink.json
 C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\refint\PA.ApplicationCore.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.ApplicationCore\obj\Debug\net6.0\PA.ApplicationCore.pdb

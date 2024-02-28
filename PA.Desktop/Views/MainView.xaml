@@ -82,8 +82,16 @@
                             <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    <RadioButton Style="{StaticResource menuButton}"
+                         Tag="{StaticResource color1}"
+                         IsChecked="False"
+                        Command="{Binding ShowPosteViewCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Icons/home.png" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Poste" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
                 </StackPanel>
-
             </Border>
 
             <!--Main Section-->

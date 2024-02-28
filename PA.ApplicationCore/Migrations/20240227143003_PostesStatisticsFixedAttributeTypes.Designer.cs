@@ -12,15 +12,15 @@ using PA.ApplicationCore;
 namespace PA.ApplicationCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240127150626_firstMig")]
-    partial class firstMig
+    [Migration("20240227143003_PostesStatisticsFixedAttributeTypes")]
+    partial class PostesStatisticsFixedAttributeTypes
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.1")
+                .HasAnnotation("ProductVersion", "7.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -109,13 +109,31 @@ namespace PA.ApplicationCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PostesId"));
 
-                    b.Property<string>("Configuration")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<float?>("CpuUsageMean")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("CpuUsageMedian")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("CpuUsagePeak")
+                        .HasColumnType("real");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MacAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float?>("MemoryUsageMean")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("MemoryUsageMedian")
+                        .HasColumnType("real");
+
+                    b.Property<float?>("MemoryUsagePeak")
+                        .HasColumnType("real");
 
                     b.Property<string>("Ref")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -128,7 +146,7 @@ namespace PA.ApplicationCore.Migrations
                     b.Property<int>("TypeId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("derniereMaintenance")
+                    b.Property<DateTime?>("derniereMaintenance")
                         .HasColumnType("datetime2");
 
                     b.HasKey("PostesId");
@@ -176,7 +194,7 @@ namespace PA.ApplicationCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusId"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -194,7 +212,7 @@ namespace PA.ApplicationCore.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("StatusId");
@@ -210,7 +228,7 @@ namespace PA.ApplicationCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TypeId"));
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -228,7 +246,7 @@ namespace PA.ApplicationCore.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("TypeId");
@@ -280,13 +298,11 @@ namespace PA.ApplicationCore.Migrations
 
             modelBuilder.Entity("PA.ApplicationCore.Domain.Etablissement", b =>
                 {
-                    b.HasOne("PA.ApplicationCore.Domain.Status", "Status")
+                    b.HasOne("PA.ApplicationCore.Domain.Status", null)
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("PA.ApplicationCore.Domain.Log", b =>
@@ -318,48 +334,38 @@ namespace PA.ApplicationCore.Migrations
 
             modelBuilder.Entity("PA.ApplicationCore.Domain.Postes", b =>
                 {
-                    b.HasOne("PA.ApplicationCore.Domain.Salles", "Salle")
+                    b.HasOne("PA.ApplicationCore.Domain.Salles", null)
                         .WithMany("Postes")
                         .HasForeignKey("SallesId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("PA.ApplicationCore.Domain.Status", "Status")
+                    b.HasOne("PA.ApplicationCore.Domain.Status", null)
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("PA.ApplicationCore.Domain.Types", "Type")
+                    b.HasOne("PA.ApplicationCore.Domain.Types", null)
                         .WithMany()
                         .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Salle");
-
-                    b.Navigation("Status");
-
-                    b.Navigation("Type");
                 });
 
             modelBuilder.Entity("PA.ApplicationCore.Domain.Salles", b =>
                 {
-                    b.HasOne("PA.ApplicationCore.Domain.Etablissement", "Etablissement")
+                    b.HasOne("PA.ApplicationCore.Domain.Etablissement", null)
                         .WithMany("Salles")
                         .HasForeignKey("EtablissementId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PA.ApplicationCore.Domain.Status", "Status")
+                    b.HasOne("PA.ApplicationCore.Domain.Status", null)
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Etablissement");
-
-                    b.Navigation("Status");
                 });
 
             modelBuilder.Entity("PA.ApplicationCore.Domain.Utilisateur", b =>

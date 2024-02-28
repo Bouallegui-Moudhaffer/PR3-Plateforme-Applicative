@@ -22,8 +22,5 @@ namespace PA.ApplicationCore.Domain
 
         // Relations
         public ICollection<Salles> Salles { get; set; }
-
-        // Navigation properties
-        public virtual Status Status { get; set; }
     }
 }

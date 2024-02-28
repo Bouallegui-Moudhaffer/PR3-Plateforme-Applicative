@@ -263,3 +263,4 @@ C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\
 C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\PA.ApplicationCore.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\PA.ApplicationCore.pdb
+C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\obj\Debug\net8.0\PA.DataPoint.sourcelink.json

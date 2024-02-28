@@ -1,0 +1,60 @@
+﻿@page "/postes"
+
+<PageTitle>Postes</PageTitle>
+
+@using PA.ApplicationCore.Domain
+@using PA.Web.Data
+@inject PostesService PosteService
+@inject NavigationManager NavigationManager
+
+<h1>Poste</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (_postes == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>PostesId</th>
+                <th>Ref</th>
+                <th>SallesId</th>
+                <th>MacAddress</th>
+                <th>IpAddress</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var _poste in _postes)
+            {
+                <tr>
+                    <td>@_poste.PostesId</td>
+                    <td>@_poste.Ref</td>
+                    <td>@_poste.SallesId</td>
+                    <td>@_poste.MacAddress</td>
+                    <td>@_poste.IpAddress</td>
+                    <td>
+                        <button @onclick="() => DeletePoste(_poste.PostesId)">Delete</button> <!-- Add a delete button -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<Postes> _postes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _postes = await PosteService.GetPostessAsync();
+    }
+    private void DeletePoste(int postesId)
+    {
+        NavigationManager.NavigateTo($"/postes/delete/{postesId}");
+    }
+}

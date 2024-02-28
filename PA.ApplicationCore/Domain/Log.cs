@@ -3,7 +3,7 @@
     public class Log
     {
         public int LogId { get; set; } // Primary Key
-        public DateTime Timestamp { get; set; } // Time of the event
+        public virtual DateTime Timestamp { get; set; } // Time of the event
         public string EventType { get; set; } // Type of event (e.g., Maintenance, Shutdown, StartUp)
         public string Description { get; set; } // Detailed description of the event
 
@@ -14,9 +14,9 @@
         public int? UtilisateurId { get; set; } // Foreign Key (Nullable) - if the log is related to a user action
 
         // Navigation properties
-        public Etablissement Etablissement { get; set; }
-        public Salles Salle { get; set; }
-        public Postes Poste { get; set; }
-        public Utilisateur Utilisateur { get; set; }
+        public virtual Etablissement Etablissement { get; set; }
+        public virtual Salles Salle { get; set; }
+        public virtual Postes Poste { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

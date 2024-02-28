@@ -1,0 +1,65 @@
+﻿@page "/postes/create"
+@using PA.ApplicationCore.Domain
+@using PA.Web.Data
+@inject PostesService PosteService
+@inject SalleService SalleService
+@inject TypeService TypeService
+@inject StatusService StatusService
+
+<EditForm Model="@_newPoste" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <!-- Form fields for new Postes entity -->
+    <label for="ref">Reference:</label>
+    <InputText id="ref" @bind-Value="_newPoste.Ref" />
+
+    <label for="salleId">Salle:</label>
+    <InputSelect id="salleId" @bind-Value="_newPoste.SallesId">
+        <option value="">-- Select Salle --</option>
+        @foreach (var salle in _salles)
+        {
+            <option value="@salle.SallesId">@salle.SallesId</option>
+        }
+    </InputSelect>
+
+    <label for="typeId">Type:</label>
+    <InputSelect id="typeId" @bind-Value="_newPoste.TypeId">
+        <option value="">-- Select Type --</option>
+        @foreach (var type in _types)
+        {
+            <option value="@type.TypeId">@type.Name</option>
+        }
+    </InputSelect>
+
+    <label for="statusId">Status:</label>
+    <InputSelect id="statusId" @bind-Value="_newPoste.StatusId">
+        <option value="">-- Select Status --</option>
+        @foreach (var status in _statuses)
+        {
+            <option value="@status.StatusId">@status.Name</option>
+        }
+    </InputSelect>
+
+    <button type="submit">Create Postes</button>
+</EditForm>
+
+@code {
+    private Postes _newPoste = new Postes();
+    private IEnumerable<Salles> _salles = new List<Salles>();
+    private IEnumerable<Types> _types = new List<Types>();
+    private IEnumerable<Status> _statuses = new List<Status>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _salles = await SalleService.GetSallessAsync();
+        _types = await TypeService.GetTypessAsync();
+        _statuses = await StatusService.GetStatussAsync();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        await PosteService.AddPostesAsync(_newPoste);
+        // Consider redirecting the user to the list page or showing a success message
+    }
+}

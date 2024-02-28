@@ -34,6 +34,25 @@
     <SolidColorBrush x:Key="panelActiveColor" Color="#2B1372"/>
     <!--Button Colors-->
     <!--TextBox Colors-->
+    <Style x:Key="Title_Txt"
+               TargetType="TextBlock">
+
+        <Setter Property="Text"
+                    Value="CPU Usage" />
+        <Setter Property="Foreground"
+                    Value="#323232" />
+        <Setter Property="FontFamily"
+                    Value="/Fonts/#Roboto Black" />
+        <Setter Property="FontSize"
+                    Value="28" />
+        <Setter Property="HorizontalAlignment"
+                    Value="Center" />
+        <Setter Property="VerticalAlignment"
+                    Value="Top" />
+        <Setter Property="Margin"
+                    Value="0,60,0,0" />
+
+    </Style>
     <!--Etc-->
 
 </ResourceDictionary>

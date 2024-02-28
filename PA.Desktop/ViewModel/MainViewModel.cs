@@ -20,6 +20,7 @@ namespace PA.Desktop.ViewModel
         private IconChar _icon;
 
         private IUserRepository userRepository;
+        private readonly HttpClient httpClient;
 
         //Properties
         public UserAccountModel CurrentUserAccount
@@ -79,16 +80,17 @@ namespace PA.Desktop.ViewModel
 
         //--> Commands
         public ICommand ShowHomeViewCommand { get; }
-        //public ICommand ShowCustomerViewCommand { get; }
+        // public ICommand ShowPosteViewCommand { get; }
+        // public ICommand ShowCustomerViewCommand { get; }
         public MainViewModel()
         {
-            HttpClient httpClient = new HttpClient();
+            httpClient = new HttpClient();
             userRepository = new UserRepository(httpClient);
             CurrentUserAccount = new UserAccountModel();
 
             //Initialize commands
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
-            //ShowCustomerViewCommand = new ViewModelCommand(ExecuteShowCustomerViewCommand);
+            // ShowPosteViewCommand = new ViewModelCommand(ExecuteShowPosteViewCommand);
 
             //Default view
             ExecuteShowHomeViewCommand(null);
@@ -119,9 +121,15 @@ namespace PA.Desktop.ViewModel
         }
         private void ExecuteShowHomeViewCommand(object obj)
         {
-            CurrentChildView = new HomeViewModel();
+            CurrentChildView = new HomeViewModel(httpClient);
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
+        /*private void ExecuteShowPosteViewCommand(object obj)
+        {
+            CurrentChildView = new PosteViewModel();
+            Caption = "View Postes";
+            Icon = IconChar.Computer;
+        }*/
     }
 }

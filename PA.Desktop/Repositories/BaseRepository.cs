@@ -23,9 +23,13 @@ namespace PA.Desktop.Repositories
 
         protected async Task<T> GetAsync<T>(string uri)
         {
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
             var response = await HttpClient.GetAsync($"{ApiBaseUrl}/{uri}");
             response.EnsureSuccessStatusCode();
-            return await JsonSerializer.DeserializeAsync<T>(await response.Content.ReadAsStreamAsync());
+            return await JsonSerializer.DeserializeAsync<T>(await response.Content.ReadAsStreamAsync(), options);
         }
 
         protected async Task<HttpResponseMessage> PostAsync<T>(string uri, T data)
@@ -38,7 +42,6 @@ namespace PA.Desktop.Repositories
 
         protected async Task<HttpResponseMessage> PutAsync<T>(string uri, T data)
         {
-            AddAuthorizationHeader();
             return await HttpClient.PutAsJsonAsync($"{ApiBaseUrl}/{uri}", data);
         }
 

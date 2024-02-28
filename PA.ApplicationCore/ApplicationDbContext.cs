@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PA.ApplicationCore.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PA.ApplicationCore
 {
@@ -33,64 +28,64 @@ namespace PA.ApplicationCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Postes>()
-                .HasOne(p => p.Salle)
+                .HasOne<Salles>() // No Navigation property
                 .WithMany(s => s.Postes)
                 .HasForeignKey(p => p.SallesId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Postes>()
-                .HasOne(p => p.Status)
+                .HasOne<Status>() // No Navigation property
                 .WithMany() 
                 .HasForeignKey(p => p.StatusId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Postes>()
-                .HasOne(p => p.Type)
+                .HasOne<Types>()
                 .WithMany()
                 .HasForeignKey(p => p.TypeId)
                 .OnDelete(DeleteBehavior.Restrict);
-            
-            // Configure the relationship between Salles and Etablissement
-            modelBuilder.Entity<Salles>()
-                .HasOne(s => s.Etablissement)
-                .WithMany(e => e.Salles)
+
+            // Configure the relationship between Etablissement and Salles
+            modelBuilder.Entity<Etablissement>()
+                .HasMany(e => e.Salles)
+                .WithOne()
                 .HasForeignKey(s => s.EtablissementId);
 
             // Configure the relationship between Salles and Status
             modelBuilder.Entity<Salles>()
-                .HasOne(s => s.Status)
+                .HasOne<Status>() // No Navigation property
                 .WithMany()
                 .HasForeignKey(s => s.StatusId)
                 .OnDelete(DeleteBehavior.Restrict);
             // Configure the relationship between Postes and Salles
             modelBuilder.Entity<Postes>()
-                .HasOne(p => p.Salle)
+                .HasOne<Salles>() // No Navigation property
                 .WithMany(s => s.Postes)
                 .HasForeignKey(p => p.SallesId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Configure the relationship between Postes and Status
             modelBuilder.Entity<Postes>()
-                .HasOne(p => p.Status) // Navigation property
+                .HasOne<Status>() // No Navigation property
                 .WithMany()
                 .HasForeignKey(p => p.StatusId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Configure the relationship between Postes and Types
             modelBuilder.Entity<Postes>()
-                .HasOne(p => p.Type) // Navigation property
+                .HasOne<Types>() // No Navigation property
                 .WithMany()
                 .HasForeignKey(p => p.TypeId)
                 .OnDelete(DeleteBehavior.Restrict);
             // Configure the relationship between Etablissement and Status
             modelBuilder.Entity<Etablissement>()
-                .HasOne(p => p.Status) // Navigation property
+                .HasOne<Status>() // No Navigation property
                 .WithMany()
                 .HasForeignKey(p => p.StatusId)
                 .OnDelete(DeleteBehavior.Restrict);
             // Configure the relationship between Utilisateur and Status
             modelBuilder.Entity<Utilisateur>()
-                .HasOne(p => p.Status) // Navigation property
+                .HasOne<Status>(p => p.Status) // Navigation property
                 .WithMany()
                 .HasForeignKey(p => p.StatusId)
                 .OnDelete(DeleteBehavior.Restrict);

@@ -13,8 +13,6 @@ namespace PA.ApplicationCore.Domain
         public int EtablissementId { get; set; }
         public int StatusId { get; set; }
         // Navigation properties
-        public Etablissement Etablissement { get; set; }
-        public ICollection<Postes> Postes { get; set; }
-        public virtual Status Status { get; set; }
+        public virtual ICollection<Postes>? Postes { get; set; }
     }
 }

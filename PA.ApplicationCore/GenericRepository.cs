@@ -33,7 +33,6 @@ namespace PA.ApplicationCore
         {
             _dbset.RemoveRange(_dbset.Where(where));
         }
-
         public async Task<T> GetAsync(Expression<Func<T, bool>> where)
         {
             //return _dbset.FirstOrDefault(where);

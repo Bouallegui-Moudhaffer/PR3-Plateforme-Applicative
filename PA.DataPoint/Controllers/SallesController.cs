@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PA.ApplicationCore.Domain;
-using PA.ApplicationCore.Interfaces; // Include the namespace for ISallesService
+using PA.ApplicationCore.Interfaces;
+using PA.ApplicationCore.Models;
 
 namespace PA.DataPoint.Controllers
 {
@@ -66,7 +67,6 @@ namespace PA.DataPoint.Controllers
         }
 
         // POST: api/Salles
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Salles>> PostSalles(Salles salles)
         {
@@ -92,6 +92,19 @@ namespace PA.DataPoint.Controllers
         private async Task<bool> SallesExists(int id)
         {
             return await _sallesService.GetByIdAsync(id) != null;
+        }
+        [HttpPost("Create")]
+        public async Task<ActionResult<Salles>> PostSalles(SallesModel model)
+        {
+            var salles = new Salles
+            {
+                Capacite = model.Capacite,
+                EtablissementId = model.EtablissementId,
+                StatusId = model.StatusId
+            };
+
+            await _sallesService.AddAsync(salles);
+            return CreatedAtAction("GetSalles", new { id = salles.SallesId }, salles);
         }
     }
 }

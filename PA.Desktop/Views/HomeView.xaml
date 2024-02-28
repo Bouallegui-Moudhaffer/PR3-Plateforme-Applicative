@@ -4,9 +4,70 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PA.Desktop.Views"
+             xmlns:viewmodel="clr-namespace:PA.Desktop.ViewModel"
+             d:DataContext="{d:DesignInstance Type=viewmodel:HomeViewModel}"
+             xmlns:custom="clr-namespace:PA.Desktop.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel>
+        <!--Circular Bar-->
+        <Canvas Width="798" Height="200">
+            <TextBlock Text="MAC Address"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Bold" HorizontalAlignment="Center" Canvas.Top="5" VerticalAlignment="Top"/>
+            <TextBlock Text="{Binding MacAddress}"
+                                   Foreground="{StaticResource color7}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Canvas.Top="30"/>
+            <TextBlock Text="IP Address"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Top" HorizontalAlignment="Center" Canvas.Top="55"/>
+            <TextBlock Text="{Binding IpAddress}"
+                                   Foreground="{StaticResource color6}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center" Canvas.Top="80"/>
+            <TextBlock Text="CPU Usage"
+                                   Foreground="{StaticResource titleColor2}"
+                                   FontSize="16"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Bold" Canvas.Right="90" Canvas.Left="628" Canvas.Top="5"/>
+            <custom:CircularProgressBar x:Name="CpuProgressBar"
+                                    Value="0"
+                                    ArcThickness="15"
+                                    BackgroundBrush="DimGray"
+                                    IndicatorBrush="DarkGreen"
+                                    FontSize="25"
+                                    Width="118" Height="109"
+                                    Canvas.Left="610" Canvas.Top="41"/>
+        </Canvas>
+        <!--CPU Usage-->
+        <Grid ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="CPU:" />
+            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="CpuUsage" Content="N/A" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Mem:" />
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="MemUsage" Content="N/A" />
+        </Grid>
+    </StackPanel>
 </UserControl>

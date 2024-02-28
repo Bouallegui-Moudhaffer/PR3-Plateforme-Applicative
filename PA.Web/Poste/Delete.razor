@@ -1,0 +1,44 @@
+﻿@page "/postes/delete/{PostesId:int}"
+@using PA.ApplicationCore.Domain
+@using PA.Web.Data
+@inject PostesService PosteService
+
+
+@if (_poste == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h3>Are you sure you want to delete this Postes?</h3>
+    <div>
+        <p>Ref: @_poste.Ref</p>
+        <p>SallesId: @_poste.SallesId</p>
+        <!-- Display other details if necessary -->
+    </div>
+    <button @onclick="ConfirmDelete">Delete</button>
+    <button @onclick="Cancel">Cancel</button>
+}
+
+@code {
+    [Parameter]
+    public int PostesId { get; set; }
+
+    private Postes _poste;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _poste = await PosteService.GetPostesAsync(PostesId);
+    }
+
+    private async Task ConfirmDelete()
+    {
+        await PosteService.DeletePostesAsync(PostesId);
+        // Consider redirecting the user to the list page or showing a success message
+    }
+
+    private void Cancel()
+    {
+        // Redirect back or close the modal/dialog if you're using one
+    }
+}
