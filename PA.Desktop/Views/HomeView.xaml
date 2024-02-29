@@ -42,7 +42,7 @@
                                    FontFamily="Montserrat"
                                    FontWeight="Bold" Canvas.Right="90" Canvas.Left="628" Canvas.Top="5"/>
             <custom:CircularProgressBar x:Name="CpuProgressBar"
-                                    Value="0"
+                                    Value="{Binding CpuUsageValue}"
                                     ArcThickness="15"
                                     BackgroundBrush="DimGray"
                                     IndicatorBrush="DarkGreen"
@@ -65,9 +65,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="CPU:" />
-            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="CpuUsage" Content="N/A" />
+            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" x:Name="CpuUsage" Content="{Binding CpuUsageValue}" />
             <Label Grid.Row="1" Grid.Column="0" Content="Mem:" />
-            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="MemUsage" Content="N/A" />
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" x:Name="MemUsage" Content="{Binding MemUsageValue}" />
         </Grid>
     </StackPanel>
 </UserControl>

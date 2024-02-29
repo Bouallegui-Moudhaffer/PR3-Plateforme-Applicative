@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "5pDLqVGdIQpH4nAFtkmpR8MkF9RxSB1+OfO4U43pgQI/hCHesa5Ea8nIVx8c45RLq0YYXLyz7aVPgO6L3pQbRA==",
+  "dgSpecHash": "qEc8BFbKguVbKYJvotdgha1HGQO5sZtZJMdE7PcxW5ozmU14EvW8lj74J8dEXPB0oNbMMMe2CM7IM7xtjtnKNg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\source\\repos\\Plateforme Applicative\\PA.Desktop\\PA.Desktop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",

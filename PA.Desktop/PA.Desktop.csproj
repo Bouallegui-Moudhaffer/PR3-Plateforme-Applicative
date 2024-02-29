@@ -12,6 +12,7 @@
     <None Remove="Fonts\Font Awesome 6 Free Solid.otf" />
     <None Remove="Icons\bell.png" />
     <None Remove="Icons\clock.png" />
+    <None Remove="Icons\computer.ico" />
     <None Remove="Icons\down.png" />
     <None Remove="Icons\envelope.png" />
     <None Remove="Icons\exit.png" />
@@ -32,6 +33,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
@@ -50,6 +52,7 @@
     <Resource Include="Fonts\Font Awesome 6 Free Solid.otf" />
     <Resource Include="Icons\bell.png" />
     <Resource Include="Icons\clock.png" />
+    <Resource Include="Icons\computer.ico" />
     <Resource Include="Icons\down.png" />
     <Resource Include="Icons\envelope.png" />
     <Resource Include="Icons\exit.png" />

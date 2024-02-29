@@ -7,6 +7,10 @@
 @inject PostesService PosteService
 @inject NavigationManager NavigationManager
 
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
 <h1>Poste</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
@@ -17,33 +21,53 @@
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>PostesId</th>
-                <th>Ref</th>
-                <th>SallesId</th>
-                <th>MacAddress</th>
-                <th>IpAddress</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var _poste in _postes)
-            {
-                <tr>
-                    <td>@_poste.PostesId</td>
-                    <td>@_poste.Ref</td>
-                    <td>@_poste.SallesId</td>
-                    <td>@_poste.MacAddress</td>
-                    <td>@_poste.IpAddress</td>
-                    <td>
-                        <button @onclick="() => DeletePoste(_poste.PostesId)">Delete</button> <!-- Add a delete button -->
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        @foreach (var _poste in _postes)
+        {
+            <div class="flip-card-container" style="--hue: 350">
+                <div class="flip-card">
+
+                    <div class="card-front">
+                        <figure>
+                            <div class="img-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1563605990484-8d4c1fa9c3d2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="@_poste.Ref">
+                            <figcaption>@_poste.Ref</figcaption>
+                        </figure>
+
+                        <ul>
+                            <li><strong>Postes ID:</strong> @_poste.PostesId</li>
+                            <li><strong>Salles ID:</strong> @_poste.SallesId</li>
+                            <li><strong>MAC Address:</strong> @_poste.MacAddress</li>
+                            <li><strong>IP Address:</strong> @_poste.IpAddress</li>
+                            <li><strong>CPU Usage Mean:</strong> @_poste.CpuUsageMean%</li>
+                            <li><strong>Memory Usage Mean:</strong> @_poste.MemoryUsageMean%</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-back">
+                        <figure>
+                            <div class="img-bg"></div>
+                            <img src="https://images.unsplash.com/photo-1565065598196-aa15dde2cbca?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="@_poste.Ref">
+                        </figure>
+
+                        <button @onclick="() => DeletePoste(_poste.PostesId)">Delete</button>
+
+                        <div class="design-container">
+                            <span class="design design--1"></span>
+                            <span class="design design--2"></span>
+                            <span class="design design--3"></span>
+                            <span class="design design--4"></span>
+                            <span class="design design--5"></span>
+                            <span class="design design--6"></span>
+                            <span class="design design--7"></span>
+                            <span class="design design--8"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
 }
 
 @code {
@@ -53,6 +77,7 @@ else
     {
         _postes = await PosteService.GetPostessAsync();
     }
+
     private void DeletePoste(int postesId)
     {
         NavigationManager.NavigateTo($"/postes/delete/{postesId}");

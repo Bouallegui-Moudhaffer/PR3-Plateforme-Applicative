@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using PA.Desktop.Models;
 using PA.Desktop.Repositories;
+using PA.Desktop.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,8 +81,7 @@ namespace PA.Desktop.ViewModel
 
         //--> Commands
         public ICommand ShowHomeViewCommand { get; }
-        // public ICommand ShowPosteViewCommand { get; }
-        // public ICommand ShowCustomerViewCommand { get; }
+
         public MainViewModel()
         {
             httpClient = new HttpClient();
@@ -90,7 +90,6 @@ namespace PA.Desktop.ViewModel
 
             //Initialize commands
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
-            // ShowPosteViewCommand = new ViewModelCommand(ExecuteShowPosteViewCommand);
 
             //Default view
             ExecuteShowHomeViewCommand(null);
@@ -121,15 +120,10 @@ namespace PA.Desktop.ViewModel
         }
         private void ExecuteShowHomeViewCommand(object obj)
         {
-            CurrentChildView = new HomeViewModel(httpClient);
+            // Assuming SystemInfoService.Instance is the way to access your singleton instance
+            CurrentChildView = new HomeViewModel(SystemInfoService.Instance);
             Caption = "Dashboard";
             Icon = IconChar.Home;
         }
-        /*private void ExecuteShowPosteViewCommand(object obj)
-        {
-            CurrentChildView = new PosteViewModel();
-            Caption = "View Postes";
-            Icon = IconChar.Computer;
-        }*/
     }
 }
