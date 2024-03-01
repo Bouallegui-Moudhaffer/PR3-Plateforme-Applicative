@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PA.DataPoint")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+76e8aacaa71be412f3304942426666dcb195e94d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79edfcac3a37e67c07f1f54dae88b0beb7f6cb43")]
 [assembly: System.Reflection.AssemblyProductAttribute("PA.DataPoint")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PA.DataPoint")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

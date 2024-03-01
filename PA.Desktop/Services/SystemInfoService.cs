@@ -20,7 +20,9 @@ namespace PA.Desktop.Services
         private readonly ulong memTotal = 0;
         private float cpuUsageValue;
         private float memUsageValue;
-        private int? postId;
+        private TaskCompletionSource<bool> _postIdReady = new TaskCompletionSource<bool>();
+        public Task<bool> PostIdReadyTask => _postIdReady.Task;
+        public int? postId;
         public string macAddress;
         public string ipAddress;
         private List<float> cpuUsages = new List<float>();
@@ -168,6 +170,7 @@ namespace PA.Desktop.Services
                 if (postes != null)
                 {
                     postId = postes.PostesId;
+                    _postIdReady.TrySetResult(true);
                     if (!string.Equals(postes.IpAddress, ipAddress) || postes.IpAddress.Equals(null))
                     {
                         await UpdateMachineIpAddress(postes.PostesId, ipAddress);
@@ -175,8 +178,7 @@ namespace PA.Desktop.Services
                 }
                 else
                 {
-                    // Machine does not exist in the database
-                    // Handle accordingly (e.g., display a message or add a new entry)
+                    _postIdReady.TrySetResult(false);
                 }
             }
             catch (Exception ex)
@@ -189,7 +191,5 @@ namespace PA.Desktop.Services
         {
             await postesRepository.UpdateIpAddress(postId, newIpAddress);
         }
-
-        // Additional methods as needed for data aggregation and transfer
     }
 }

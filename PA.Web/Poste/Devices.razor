@@ -6,6 +6,7 @@
 @using PA.Web.Data
 @inject PostesService PosteService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -51,6 +52,10 @@ else
                         </figure>
 
                         <button @onclick="() => DeletePoste(_poste.PostesId)">Delete</button>
+                        <button @onclick="@(() => SendCommand(_poste.PostesId.ToString(), "shutdown"))">Shutdown</button>
+                        <button @onclick="@(() => SendCommand(_poste.PostesId.ToString(), "restart"))">Restart</button>
+
+
 
                         <div class="design-container">
                             <span class="design design--1"></span>
@@ -77,9 +82,12 @@ else
     {
         _postes = await PosteService.GetPostessAsync();
     }
-
     private void DeletePoste(int postesId)
     {
         NavigationManager.NavigateTo($"/postes/delete/{postesId}");
+    }
+    private async Task SendCommand(string machineId, string command)
+    {
+        await JSRuntime.InvokeVoidAsync("sendCommandToMachine", machineId, command);
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using PA.ApplicationCore;
 using PA.ApplicationCore.Interfaces;
 using PA.ApplicationCore.Services;
-using System;
+using PA.DataPoint.Server;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +24,7 @@ builder.Services.AddScoped<IStatus, StatusService>();
 
 
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -79,7 +80,18 @@ builder.Services.AddAuthentication(options =>
     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("6cFgsF/zQjtPVqVtoAliQ7ToN941oKprEy+cKsHqnic="))
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazorOrigin",
+        builder => builder.WithOrigins("https://localhost:7113")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
+});
+
 var app = builder.Build();
+
+app.UseRouting();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -88,10 +100,18 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowBlazorOrigin");
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapHub<MachinesHub>("/machinesHub"); // Map the SignalR Hub
+});
 
 app.MapControllers();
 

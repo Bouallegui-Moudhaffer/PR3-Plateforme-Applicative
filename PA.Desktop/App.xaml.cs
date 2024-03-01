@@ -3,6 +3,7 @@ using PA.Desktop.Models;
 using PA.Desktop.Repositories;
 using PA.Desktop.Services;
 using PA.Desktop.Views;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Windows;
 
@@ -16,23 +17,37 @@ namespace PA.Desktop
         private TaskbarIcon notifyIcon;
         private IUserRepository userRepository;
         private HttpClient httpClient;
+        private SignalRService signalRService;
 
-        protected override void OnStartup(StartupEventArgs e)
+        protected override async void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            _ = SystemInfoService.Instance;
+            var systemInfoService = SystemInfoService.Instance;
 
             httpClient = new HttpClient();
-
-            // Initialize UserRepository with the HttpClient instance
             userRepository = new UserRepository(httpClient);
-
-            // Initialize and display NotifyIcon from resources
             notifyIcon = (TaskbarIcon)FindResource("MyNotifyIcon");
+            
+            bool postIdReady = await systemInfoService.PostIdReadyTask;
+
+            if (postIdReady && systemInfoService.postId.HasValue)
+            {
+                signalRService = new SignalRService(systemInfoService.postId.Value.ToString());
+                await signalRService.StartAsync();
+            }
+            else
+            {
+                // Handle the case where postId could not be obtained
+                Debug.WriteLine("PostId is not available or could not be obtained.");
+            }
         }
 
-        protected override void OnExit(ExitEventArgs e)
+        protected override async void OnExit(ExitEventArgs e)
         {
+            if (signalRService != null)
+            {
+                await signalRService.StopAsync();
+            }
             notifyIcon.Dispose();
             base.OnExit(e);
         }

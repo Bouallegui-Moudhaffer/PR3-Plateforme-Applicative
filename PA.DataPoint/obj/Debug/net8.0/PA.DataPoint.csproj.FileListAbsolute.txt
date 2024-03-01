@@ -264,3 +264,7 @@ C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\
 C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\PA.ApplicationCore.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\PA.ApplicationCore.pdb
 C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\obj\Debug\net8.0\PA.DataPoint.sourcelink.json
+C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\Microsoft.Owin.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\Microsoft.Owin.Security.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.DataPoint\bin\Debug\net8.0\Owin.dll

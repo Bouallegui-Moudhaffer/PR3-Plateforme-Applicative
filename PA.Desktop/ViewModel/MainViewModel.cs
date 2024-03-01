@@ -120,7 +120,6 @@ namespace PA.Desktop.ViewModel
         }
         private void ExecuteShowHomeViewCommand(object obj)
         {
-            // Assuming SystemInfoService.Instance is the way to access your singleton instance
             CurrentChildView = new HomeViewModel(SystemInfoService.Instance);
             Caption = "Dashboard";
             Icon = IconChar.Home;

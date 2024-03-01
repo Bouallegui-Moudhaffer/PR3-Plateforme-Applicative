@@ -104,3 +104,16 @@ C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-wi
 C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.Extensions.ObjectPool.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.Net.Http.Headers.dll
 C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Hardcodet.NotifyIcon.Wpf.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.SignalR.Client.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.Extensions.Features.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.Owin.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Microsoft.Owin.Security.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\Owin.dll
+C:\Users\user\source\repos\Plateforme Applicative\PA.Desktop\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
